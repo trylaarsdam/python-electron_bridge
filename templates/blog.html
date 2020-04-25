@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script defer src="/js/render.js"></script>
+  </head>
+  <body>
+	<h1>{{ title }}</h1>
+  <ul>
+  {% for person in people %}
+   
+    <li>{{ person.name }}</li>
+   
+  {% endfor %}
+  <button id="stopBtn" onclick="buttonClicked()">Stop</button>
+  <p>Button clicked: {{ buttonClicked }}</p>
+  </ul>
+  </body>
+</html>
