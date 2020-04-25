@@ -12,7 +12,7 @@ app = Flask(__name__, static_url_path='/')
 def hello(inputData):
     print("python-started rendering")
     with app.app_context():
-        rendered = render_template('blog.html', \
+        rendered = render_template('index_template.html', \
             title = "My Generated Page", \
             people = [{"name": "Mark"}, {"name": "Michael"}, {"name": inputData}], \
             buttonClicked = inputData)
