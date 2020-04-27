@@ -51,7 +51,7 @@ app.on('ready', function() {
     console.log('Attempting to start backup python child process...')
 
     if (process.platform == 'win32'){
-      var backup_subpy = require('child_process').spawn('python', ['./resources/app/main.py'], {stdio: [process.stdin, process.stdout, process.stderr]});
+      var backup_subpy = require('child_process').spawn('python', ['./resources/app/main.py']);
     }
     if (process.platform == 'darwin'){
       var backup_subpy = require('child_process').spawn('python3', ['../Resources/app/main.py'], {stdio: [process.stdin, process.stdout, process.stderr]});
