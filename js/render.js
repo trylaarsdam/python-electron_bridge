@@ -16,7 +16,7 @@ function buttonClicked(buttonID){
     el = document.getElementById(buttonID)
     el.innerHTML = String(Http.responseText);
   }
-  
+  event.preventDefault();
 };
 
 function renderTest() {
