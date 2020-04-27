@@ -6,13 +6,13 @@ const stopBtn = document.getElementById('stopBtn');
 console.log("render.js ran");
 console.log(stopBtn);
 
-function buttonClicked(){
+function buttonClicked(buttonID){
   console.log("button clicked (running from render.js)")
   Http.open("GET", "http://localhost:5000/buttonClicked/buttonClicked");
   Http.send();
   Http.onreadystatechange=(e)=>{
     console.log(Http.responseText)
-    stopBtn.innerText = Http.responseText;
+    buttonID.innerHTML = Http.responseText;
   }
   
 };

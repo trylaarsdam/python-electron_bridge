@@ -13,8 +13,12 @@
     <li>{{ person.name }}</li>
    
   {% endfor %}
-  <button id="stopBtn" onclick="buttonClicked()">Stop</button>
+  <button id="stopBtn" onclick="buttonClicked("stopBtn")">Stop</button>
   <p>Button clicked: {{ buttonClicked }}</p>
+  {% for button in buttonArray %}
+    <li>{{ button.name }}</li>
+    <button id="{{ button.name }}" onclick="buttonClicked({{ button.name }})">{{ button.name }}</button>
+  {% endfor %}
   </ul>
   </body>
 </html>
