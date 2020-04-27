@@ -12,7 +12,9 @@ function buttonClicked(buttonID){
   Http.send();
   Http.onreadystatechange=(e)=>{
     console.log(Http.responseText)
-    buttonID.innerHTML = Http.responseText;
+    //buttonID.innerHTML = Http.responseText;
+    el = document.getElementById(buttonID)
+    el.innerHTML = String(Http.responseText);
   }
   
 };
