@@ -15,7 +15,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // call python?
   
-    var subpy = require('child_process').spawn('python', ['./main.py']);
+    var subpy = require('child_process').spawn('python', ['./main.py'], {stdio: [process.stdin, process.stdout, process.stderr]});
   
   //var subpy = require('child_process').spawn('./dist/hello.exe');
   
@@ -51,10 +51,11 @@ app.on('ready', function() {
     console.log('Attempting to start backup python child process...')
 
     if (process.platform == 'win32'){
-      var backup_subpy = require('child_process').spawn('python', ['./resources/app/main.py']);
+      var backup_subpy = require('child_process').spawn('python', ['./resources/app/main.py'], {stdio: [process.stdin, process.stdout, process.stderr]});
     }
     if (process.platform == 'darwin'){
-      var backup_subpy = require('child_process').spawn('python3', ['../resources/app/main.py'])
+      var backup_subpy = require('child_process').spawn('python3', ['../Resources/app/main.py'], {stdio: [process.stdin, process.stdout, process.stderr]});
+      //var backup_subpy = require('child_process').spawn('pwd', {stdio: [process.stdin, process.stdout, process.stderr]});
     }
 
     backup_subpy.on('exit', (code) => {
