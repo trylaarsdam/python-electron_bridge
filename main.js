@@ -14,7 +14,9 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
   // call python?
-  var subpy = require('child_process').spawn('python', ['./main.py']);
+  
+    var subpy = require('child_process').spawn('python', ['./main.py']);
+  
   //var subpy = require('child_process').spawn('./dist/hello.exe');
   
   var rq = require('request-promise');
@@ -47,7 +49,13 @@ app.on('ready', function() {
   subpy.on('exit', (code) => {
     console.log(`python child process exited with code ${code}`);
     console.log('Attempting to start backup python child process...')
-    var backup_subpy = require('child_process').spawn('python', ['./resources/app/main.py']);
+
+    if (process.platform == 'win32'){
+      var backup_subpy = require('child_process').spawn('python', ['./resources/app/main.py']);
+    }
+    if (process.platform == 'darwin'){
+      var backup_subpy = require('child_process').spawn('python3', ['../resources/app/main.py'])
+    }
 
     backup_subpy.on('exit', (code) => {
       console.log(`backup python child process exited with code ${code}`);
