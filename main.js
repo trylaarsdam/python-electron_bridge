@@ -15,7 +15,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // call python?
   
-    var subpy = require('child_process').spawn('python', ['./main.py'], {stdio: [process.stdin, process.stdout, process.stderr]});
+    var subpy = require('child_process').spawn('python', ['./main.py']);
   
   //var subpy = require('child_process').spawn('./dist/hello.exe');
   
