@@ -4,6 +4,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import send_from_directory
+buttonIncrementValue = 0
 
 app = Flask(__name__, static_url_path='/')
 buttonTestArray = ["button1", "button2", "button3"]
@@ -31,8 +32,10 @@ def send_js(path):
 
 @app.route("/<buttonID>/buttonClicked")
 def buttonClicked(buttonID):
+    global buttonIncrementValue
+    buttonIncrementValue = buttonIncrementValue + 1
     print("python button click recieved")
-    return buttonID + " returned from python" #does whatever needs to be done
+    return buttonID + " returned from python " + str(buttonIncrementValue) #does whatever needs to be done
 
 
 if __name__ == "__main__":

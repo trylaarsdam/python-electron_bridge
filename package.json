@@ -1,8 +1,8 @@
 {
-  "name": "your-app",
-  "version": "0.1.0",
+  "name": "CPU_Emulator",
+  "version": "0.0.6",
   "main": "main.js",
-  "description": "My Electron application description",
+  "description": "Customizable CPU Emulator",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

@@ -13,11 +13,14 @@
     <li>{{ person.name }}</li>
    
   {% endfor %}
+  
   <p>Button clicked: {{ buttonClicked }}</p>
   {% for button in buttonArray %}
     <li>{{ button.name }}</li>
-    <button id="{{ button.name }}" onclick="buttonClicked(this.id)">{{ button.name }}</button>
+    <button type="button" id="{{ button.name }}" onclick="buttonClicked(this.id);">{{ button.name }}</button>
   {% endfor %}
   </ul>
+  
+  <input id="RegB_Button" type="button" onclick="buttonClicked(this.id)" value="RegB" />
   </body>
 </html>
